@@ -43,7 +43,8 @@
     </div>
     <div id="patientWaitingApp" class="col-md-auto queueView">
       Queue View<br />
-        <div class="patientWaiting patient" v-for="patient in patients">
+        {{person.name.first}} {{person.name.last}}
+        <div class="patientWaiting patient" v-for="patient in patients" v-bind:class="patient.priority +'Priority'">
         <span>Arrival time</span><br />
         <span>{{patient.firstName}}</span>
         <span>{{patient.lastName}}</span>
@@ -58,39 +59,59 @@
 </div>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script>
-    var app = new Vue({
+    var waitingApp = new Vue({
       el: '#patientWaitingApp',
       data: {
+          person:{
+              name:{
+                  "first":"",
+                  "last":""
+              }
+          },
         patients: [{
 			"patientGuid": "PATIENT-ID-123",
 			"firstName": "Lenny",
 			"lastName": "Sage",
 			"dob": "02/15/1997",
-			"sexAtBirth": "F"
+			"sexAtBirth": "F",
+            priority:"high" 
 		},
 		{
 			"patientGuid": "PATIENT-ID-456",
 			"firstName": "Paris",
 			"lastName": "Dennis",
 			"dob": "10/20/1993",
-			"sexAtBirth": "F"
+			"sexAtBirth": "F",
+            priority:"high"
 		},
         {
 			"patientGuid": "PATIENT-ID-789",
 			"firstName": "Jason",
 			"lastName": "Choi",
 			"dob": "05/24/1994",
-			"sexAtBirth": "M"
+			"sexAtBirth": "M",
+            priority:"medium"
 		},
         {
 			"patientGuid": "PATIENT-ID-987",
 			"firstName": "Cade",
 			"lastName": "Stewart",
 			"dob": "11/11/2000",
-			"sexAtBirth": "M"
+			"sexAtBirth": "M",
+            priority:"low"
 		}
 	]
-      }
+      },
+        methods:{
+            fetchPatients: function(){
+                fetch('https://randomuser.me/api/')
+                .then(response => response.json())
+                .then(json => {waitingApp.person = json.result[0]})
+            }
+        },
+        created: function(){
+            this.fetchPatients();
+        }
     })
     </script>
 </body>
