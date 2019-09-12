@@ -1,31 +1,26 @@
-{
-	"patient": [{
-			"patientGuid": "PATIENT-ID-123",
-			"firstName": "Lenny",
-			"lastName": "Sage",
-			"dob": "02/15/1997",
-			"sexAtBirth": "F"
-		},
-		{
-			"patientGuid": "PATIENT-ID-456",
-			"firstName": "Paris",
-			"lastName": "Dennis",
-			"dob": "10/20/1993",
-			"sexAtBirth": "F"
-		},
-        {
-			"patientGuid": "PATIENT-ID-789",
-			"firstName": "Jason",
-			"lastName": "Choi",
-			"dob": "05/24/1994",
-			"sexAtBirth": "M"
-		},
-        {
-			"patientGuid": "PATIENT-ID-987",
-			"firstName": "Cade",
-			"lastName": "Stewart",
-			"dob": "11/11/2000",
-			"sexAtBirth": "M"
-		}
-	]
-}
+[
+  {
+    "patientGuid": "SOME-REALLY-LONG-1234",
+    "firstName": "Sylvia",
+    "lastName": "Hernandez",
+    "dob": "2012-09-01",
+    "sexAtBirth": "F",
+    "priority": "high"
+  },
+  {
+    "patientGuid": "SOME-REALLY-SHORT-5678",
+    "firstName": "Vish",
+    "lastName": "Balasubramanian",
+    "dob": "1950-12-15",
+    "sexAtBirth": "M",
+    "priority": "medium"
+  },
+  {
+    "patientGuid": "SOME-UNIQUE-ABCDE1",
+    "firstName": "John",
+    "lastName": "Doe",
+    "dob": "1997",
+    "sexAtBirth": "M",
+    "priority": "low"
+  }
+]
