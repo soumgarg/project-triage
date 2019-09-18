@@ -1,5 +1,5 @@
-var waitingApp = new Vue({
-  el: '#patientWaitingApp',
+var patientRecordApp = new Vue({
+  el: '#patientRecordApp',
   data: {
     patients: []
   },
@@ -7,7 +7,7 @@ var waitingApp = new Vue({
     fetchPatients() {
       fetch('dummy.php')
       .then( response => response.json() )
-      .then( json => {waitingApp.patients = json})
+      .then( json => {patientRecordApp.patients = json})
       ;
 
       // Means the same at this

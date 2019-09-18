@@ -31,20 +31,36 @@
     <div class="row">
       <div id="mainContent" class="col">
         Registration form
-      </div>
-      <div id="patientWaitingApp" class="col-md-4 queueView">
-        <div class="patientWaiting patient"
+      <div id="patientRecordApp" class="col">
+        <!--<div class="patientWaiting patient"
         :class="patient.priority +'Priority'"
-         v-for="patient in patients">
-          arrival time<br>
-          <span class="patientName">{{ patient.lastName }}</span>
+         v-for="patient in patients">-->
+         <!-- <span class="patientName">{{ patient.lastName }}</span>
           <span class="patientName">{{ patient.firstName }}</span><br>
           <span>{{ patient.sexAtBirth }}</span>
-          <span>{{ patient.dob }}</span>
+          <span>{{ patient.dob }}</span>-->
+          <form>
+              First Name: <input type="text" name="firstName" id="firstName"><br />
+              Last Name: <input type="text" name="lastName" id="lastName"><br />
+              Sex at Birth: <input type="text" name="sexAtBirth" id="sexAtBirth"><br />
+              DOB: <input type="date" name="dob" id="dob">
+          </form>
+            <table class="table table-sm table-hover">
+                <tr>
+                    <th>Patient Name</th>
+                    <th>Sex at Birth</th>
+                    <th>DOB</th>
+                </tr>
+                <tr v-for="patient in patients">
+                    <td>{{ patient.firstName }}&nbsp;{{ patient.lastName }}</td>
+                    <td>{{ patient.sexAtBirth }}</td>
+                    <td>{{ patient.dob }}</td>
+                </tr>
+            </table>
+        </div>
         </div>
       </div>
     </div>
-  </div>
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <script src="js/waiting.app.js"></script>
 </body>
